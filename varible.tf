@@ -12,7 +12,7 @@ variable "vpc_name" {
 }
 
 # VPC CIDR Block
-variable "vpc_cidr_block" {
+variable "cidr" {
   description = "VPC CIDR Block"
   type        = string
   default     = "30.30.0.0/16"
@@ -26,10 +26,10 @@ variable "vpc_availability_zones" {
 }
 
 # VPC Public Subnets
-variable "vpc_public_subnets" {
+variable "subnet" {
   description = "VPC Public Subnets"
-  type        = list(string)
-  default     = ["30.30.1.0/24" , "30.30.2.0/24"]
+  type        = string
+  default     = "30.30.1.0/24"
 }
 
 
