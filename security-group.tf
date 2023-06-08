@@ -1,7 +1,7 @@
 resource "aws_security_group" "sg" {
   name        = "vm-sg"
   description = "vm-sg"
-  vpc_id      =  module.vpc.vpc_id
+  vpc_id     = aws_vpc.vpc.id
   ingress {
     description = "allow 22 port"
     from_port   = 22
