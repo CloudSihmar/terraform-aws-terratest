@@ -6,10 +6,9 @@ provider "aws" {
 resource "aws_instance" "terraform-cloud-vm" {
   ami                    = var.ami
   instance_type          = var.instance_type
+  subnet_id              = aws_subnet.subnet.id
   count                  = 1
-  key_name               = "ter"
-  user_data              = file("install.sh")
-  subnet_id              = module.vpc.public_subnets[0]          
+  user_data              = file("install.sh")         
   vpc_security_group_ids = [aws_security_group.sg.id]
   tags = {
     "Name" = "terraform-cloud-vm-${count.index}"
